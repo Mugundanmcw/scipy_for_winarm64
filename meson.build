@@ -204,5 +204,5 @@ else
   qhull_r = subproject('qhull_r', version : '8.0.2')
   qhull_r_dep = qhull_r.get_variable('qhull_r_dep')
 endif
-add_project_link_arguments('-bigobj', language : ['c', 'cpp'])
+add_project_arguments('/bigobj', language: 'cpp')
 subdir('scipy')

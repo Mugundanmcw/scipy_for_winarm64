@@ -10,16 +10,12 @@ on:
       - maintenance/**
 permissions:
    contents: read  # to fetch code (actions/checkout)
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+#   cancel-in-progress: true
 jobs:
-  get_commit_message:
-    name: Get commit message
-    uses: ./.github/workflows/commit_message.yml
   fast_spin:
     name: fast, py3.12/npAny, spin
-    needs: get_commit_message
     # Ensure (a) this doesn't run on forks by default, and
     #        (b) it does run with Act locally (`github` doesn't exist there)
     # if: >
